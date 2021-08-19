@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>画板</title>
+</head>
+
+<body>
+    <!--canvas的长宽得在一开始确定，如果在css中确定的话，会被拉伸-->
+    <canvas id="canvas"></canvas>
+    <script>
+        //获取canvas
+        let canvas = document.getElementById('canvas')
+        //把canvas的高度换成文档的高度，宽度换成文档的宽度
+        canvas.width = document.documentElement.clientWidth
+        canvas.height = document.documentElement.clientHeight
+        //canvas画线
+        let ctx = canvas.getContext("2d");
+        // ctx.fillStyle = "blue";
+
+        let painting = false
+
+        canvas.onmousedown = () => {
+            painting = true
+        }
+        ctx.fillStyle = 'none'
+        ctx.strokeStyle = 'none'
+        canvas.onmousemove = (e) => {
+            if (painting === true) {
+                //ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10);画矩形
+                ctx.beginPath();
+                ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI, false);
+                ctx.stroke();
+                ctx.fill();
+                ctx.stroke();
+            } else {
+                console.log("什么也不做")
+            }
+        }
+
+        canvas.onmouseup = () => {
+            painting = false
+        }
+    </script>
+</body>
+
+</html>

@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <div id="canvas"></div>
+    <div id="canvas1"></div>
     <script>
-        canvas.onclick = (e) => {
+        canvas.onclick = (e) => {//onmousemove鼠标移动时间onlick鼠标点击事件
             console.log(e.clientX)
             console.log(e.clientY)
 
@@ -27,7 +27,7 @@
             div.style.marginTop = '-3px'
             div.style.borderRadius = '50%'
             div.style.backgroundColor = 'black'
-            canvas.appendChild(div)//在canvas那个div的里面添加一个div
+            canvas1.appendChild(div)//在canvas那个div的里面添加一个div
         }
     </script>
 </body>
